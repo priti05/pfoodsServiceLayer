@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+	<bean id="orderSLHelper" class="com.pFoods.sl.order.helper.OrderSLHelper" scope="prototype"/>
+	
+	<bean id="order" class="com.pFoods.dbo.order.Order" scope="prototype"/>
+	
+	<bean id="reserveTableSLHelper" class="com.pFoods.sl.reserveTable.helper.ReserveTableSLHelper" scope="prototype"/>
+		
+	<bean id="eventSLHelper" class="com.pFoods.sl.event.helper.EventSLHelper" scope="prototype"/>
+	
+	<bean id="event" class="com.pFoods.dbo.event.CreateAndManageEvent" scope="prototype"/>
+	
+	<context:annotation-config/>
+</beans>

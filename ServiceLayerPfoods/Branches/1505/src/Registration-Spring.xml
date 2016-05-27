@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+	<bean id="registrationSLHelperBean" class="com.pFoods.sl.registration.helper.RegistrationSLHelper"/>
+	
+	<bean id="registrationSLModelHelperBean" class="com.pFoods.sl.registration.helper.RegistrationSLModelHelper"/>
+	<!--Hibernate Model classes are autowired in RegistrationSLModelHelper, That to be by name-->
+	<bean id="loginInfoModel" class="com.pFoods.dbo.userProfile.loginModal.LoginInfo"/> 
+	<bean id="userProfileModel" class="com.pFoods.dbo.userProfile.profileModal.UserProfile"/>
+	<bean id="addressModel" class="com.pFoods.dbo.userProfile.profileModal.Address"/>
+	
+	<!-- "userProfileRegDBOBean" is created to call register method of DBO layer -->
+	<bean id="userProfileRegDBOBean" class="com.pFoods.dbo.userProfile.UserProfileDBORegistration"/>
+	
+	<!-- "registrationSLRequestTO" to pass DBOlayerTO -->
+	<bean id="registrationSLRequestTO" class="com.pFoods.sl.registration.To.RegistrationSLRequestTO"/>
+	<!-- This below two to has been autowired by name in  registrationSLRequestTO -->
+	<bean id="registrationDBORequestTO" class="com.pFoods.dbo.userProfile.TO.RegistrationDBORequestTO"/>
+	<bean id="updateAddressDBOTo" class="com.pFoods.dbo.userProfile.TO.UpdateAddressDBOTO"/>
+	
+	
+	<context:annotation-config/>
+</beans>

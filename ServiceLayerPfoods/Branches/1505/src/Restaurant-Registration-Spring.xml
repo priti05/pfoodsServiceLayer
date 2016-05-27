@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:context="http://www.springframework.org/schema/context">
+	
+	<!-- create bean of SL helper -->
+	<bean id="restaurantRegistrationSLHelper" class="com.pFoods.sl.restaurant.helper.RestaurantRegistrationSLHelper"/>
+	
+	<!-- to create dbo request for restaurant registration -->
+	<bean id="restaurantRegistrationDBORequestTO" class="com.pFoods.dbo.restaurant.to.RestaurantRegistrationDBORequestTO">
+		<property name="restaurantLoginInfo" ref="restaurantLoginInfodDBO"/>
+		<property name="restaurantProfile" ref="restaurantProfileDBO"/>
+		<property name="restaurantAddress" ref="restaurantAddressDBO"/>
+	</bean>
+	
+	<bean id="restaurantLoginInfodDBO" class="com.pFoods.dbo.restaurant.loginModal.RestaurantLoginInfo"/>
+	<bean id="restaurantProfileDBO" class="com.pFoods.dbo.restaurant.profileModal.RestaurantProfile"/>
+	<bean id="restaurantAddressDBO" class="com.pFoods.dbo.restaurant.profileModal.RestaurantAddress"/>
+	
+	
+	<!-- to make DBO call -->
+ 	<bean id="restaurantProfileDBORegistration" class="com.pFoods.dbo.restaurant.RestaurantProfileDBORegistration" />
+ 	
+ 	<!-- to create dbo request for menu registration -->
+ 	<bean id="restaurantMenuRegistrationDBORequestTO" class="com.pFoods.dbo.restaurant.to.RestaurantMenuRegistrationDBORequestTO"/>
+ 	
+ 	<bean id="restaurantValidateLoginCredentialRequestTO" class="com.pFoods.dbo.restaurant.to.RestaurantValidateLoginCredentialRequestTO"/>
+ 	
+	<context:annotation-config/>
+</beans>
